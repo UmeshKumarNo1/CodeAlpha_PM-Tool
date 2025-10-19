@@ -15,11 +15,13 @@ class MemoryDB {
   initializeDemoData() {
     // Create demo user
     const demoUserId = crypto.randomBytes(12).toString('hex');
+    // bcrypt hash of 'demo123' with salt rounds 10
+    // Generated using: bcrypt.hashSync('demo123', 10)
     this.users.set(demoUserId, {
       _id: demoUserId,
       name: 'Demo User',
       email: 'demo@example.com',
-      passwordHash: '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/KFm', // bcrypt hash of 'demo123'
+      passwordHash: '$2a$10$woNUBgxeo2A8F0HR5WhqfOw1Z0WgR18JU8bEwnzgjNQHkpbn8Sb0e', // bcrypt hash of 'demo123'
       phone: '+1234567890',
       bio: 'Demo user for testing',
       role: 'admin',
